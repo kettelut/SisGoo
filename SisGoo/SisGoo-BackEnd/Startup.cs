@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SisGoo_BackEnd.Services;
+using SisGoo_BackEnd.Services.Implementations;
 
 namespace SisGoo_BackEnd
 {
@@ -32,6 +34,7 @@ namespace SisGoo_BackEnd
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SisGoo_BackEnd", Version = "v1" });
             });
+            services.AddScoped<IConsultaService, ConsultaServiceImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

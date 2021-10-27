@@ -1,0 +1,22 @@
+<h1 id="tableLabel">Pesquisa</h1>
+
+<p>Lista de resultados da pesquisa.</p>
+
+<p *ngIf="!consultas"><em>Carregando...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="consultas">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Título</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of consultas">
+      <td>{{ c.id }}</td>
+      <td>{{ c.titulo }}</td>
+      <td>{{ c.link }}</td>
+    </tr>
+  </tbody>
+</table>

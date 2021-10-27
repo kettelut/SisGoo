@@ -22,11 +22,11 @@ namespace SisGoo.Controllers
         }
 
         [HttpGet("{frase}")]
-        public IActionResult Get(string frase)
+        public async Task<IActionResult> GetAsync(string frase)
         {
             if (!string.IsNullOrEmpty(frase))
             {
-                return Ok(_consultaService.Buscar(frase));
+                return Ok(await _consultaService.BuscarAsync(frase));
             }
             return BadRequest("Invalid Input");
         }

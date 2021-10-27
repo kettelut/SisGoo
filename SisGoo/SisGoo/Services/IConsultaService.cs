@@ -8,6 +8,6 @@ namespace SisGoo.Services
 {
     public interface IConsultaService
     {
-        List<Consulta> Buscar(string frase);
+        Task<List<Consulta>> BuscarAsync(string frase);
     }
 }

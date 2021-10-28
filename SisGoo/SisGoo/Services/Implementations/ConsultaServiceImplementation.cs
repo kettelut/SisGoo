@@ -38,12 +38,24 @@ namespace SisGoo.Services.Implementations
                         String[] getLink = item.Split("\"><");
                         getLink[0] = getLink[0].Replace("href=\"", "");  
                         getLink[0] = getLink[0].Replace("/url?q=", "");
+                        getLink[0] = getLink[0].Replace("class=\"tHmfQe\"", "");
                         String[] getLink2 = getLink[0].Split("&amp");
-                        var linkAdd = getLink2[0];
+                        var linkAdd = getLink2[0].Trim();
 
                         // Trata o HTML do título
-                        String[] getTitulo = item.Split("<div class=\"BNeawe vvjwJb AP7Wnd\">");
+                        String[] getTitulo = null;
+                        if (item.Contains("<div class=\"BNeawe vvjwJb AP7Wnd\">"))
+                        {
+                            getTitulo = item.Split("<div class=\"BNeawe vvjwJb AP7Wnd\">");
+                        }
+                        else
+                        {
+                            getTitulo = item.Split("<div class=\"BNeawe deIvCb AP7Wnd\">");
+                        }
+
+                        getTitulo[1] = getTitulo[1];
                         String[] getTitulo2 = getTitulo[1].Split("</div></h3>");
+
                         var tituloAdd = getTitulo2[0];
 
                         Consulta consultaAdd = new Consulta
